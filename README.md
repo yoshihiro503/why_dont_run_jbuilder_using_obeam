@@ -10,6 +10,31 @@ $ _build/default/main.exe
 $
 ```
 
+## do run
+
+modify jbuild:
+
+```diff
+--- a/jbuild
++++ b/jbuild
+@@ -2,4 +2,4 @@
+ 
+ (executable
+  ((name main)
+-  (libraries (obeam))))
++  (libraries ())))
+```
+
+```console
+$ jbuilder build main.exe
+    ocamldep main.depends.ocamldep-output
+      ocamlc main.{cmi,cmo,cmt}
+    ocamlopt main.{cmx,o}
+    ocamlopt main.exe
+$ _build/default/main.exe 
+hello, a using obeam project.
+```
+
 ## my environment
 
 * opam 1.2.2
